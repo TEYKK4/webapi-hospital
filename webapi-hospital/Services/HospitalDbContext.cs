@@ -8,7 +8,7 @@ public sealed class HospitalDbContext : DbContext
     public HospitalDbContext(DbContextOptions<HospitalDbContext> options) : base(options)
     {
         Database.EnsureCreated();
-        // Database.EnsureDeleted();
+        //Database.EnsureDeleted();
     }
 
     public DbSet<User?> Users { get; set; } = null!;

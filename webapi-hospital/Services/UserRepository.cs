@@ -7,21 +7,25 @@ public class UserRepository : IUserRepository
 {
     private readonly HospitalDbContext _dbContext;
 
+    
     public UserRepository(HospitalDbContext dbContext)
     {
         _dbContext = dbContext;
     }
 
+    
     public async Task<IEnumerable<User?>> GetAsync()
     {
         return await _dbContext.Users.ToArrayAsync();
     }
 
+    
     public async Task<User?> GetByIdAsync(int id)
     {
         return await _dbContext.Users.SingleOrDefaultAsync(u => u != null && u.Id == id);
     }
 
+    
     public async Task<bool> AddAsync(User ser)
     {
         try
@@ -35,6 +39,7 @@ public class UserRepository : IUserRepository
         }
     }
 
+    
     public async Task<bool> RemoveAsync(int id)
     {
         try
